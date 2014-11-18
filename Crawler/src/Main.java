@@ -1,11 +1,19 @@
 import Frazeusz.Crawler.Crawler;
+import Frazeusz.Crawler.CrawlerGUI;
+import Frazeusz.Parser.Parser;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
         System.out.println("CRAWLER");
 
-        Crawler crawler = new Crawler();
+        Parser parser = new Parser();
+
+        Crawler crawler = new Crawler(parser);
+
+        CrawlerGUI gui = crawler.getGUI();
+        gui.showForm();
+
 
         System.out.println("Setting up...");
         crawler.setup("data", 2);

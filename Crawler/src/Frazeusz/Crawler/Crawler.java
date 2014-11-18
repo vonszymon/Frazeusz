@@ -1,5 +1,6 @@
 package Frazeusz.Crawler;
 
+import Frazeusz.Parser.Parser;
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
@@ -14,12 +15,22 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
 public class Crawler {
     CrawlController controller;
+    Parser parser;
     int numberOfCrawlers;
     CrawlStats stats;
+    CrawlerGUI gui;
+
+    public Crawler(Parser parser)
+    {
+        this.parser = parser;
+        this.gui = new CrawlerGUI(this);
+        this.stats = new CrawlStats(this);
+
+    }
 
     public void setup(String crawlStorageFolder, int numberOfCrawlers) throws Exception
     {
-        this.stats = new CrawlStats(this);
+
 
 
     /*
@@ -102,5 +113,14 @@ public class Crawler {
     public CrawlStats getStatistics()
     {
         return this.stats;
+    }
+
+    public CrawlerGUI getGUI()
+    {
+        return this.gui;
+    }
+
+    public Parser getParser() {
+        return this.parser;
     }
 }
