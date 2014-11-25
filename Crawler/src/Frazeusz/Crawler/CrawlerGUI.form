@@ -17,7 +17,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="24e9" class="javax.swing.JList" binding="list1" default-binding="true">
+          <component id="24e9" class="javax.swing.JList" binding="listDomains">
             <constraints>
               <splitpane position="left"/>
             </constraints>
@@ -82,7 +82,7 @@
                       <text value="(0 - bez ograniczeń)"/>
                     </properties>
                   </component>
-                  <component id="2e623" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+                  <component id="2e623" class="javax.swing.JComboBox" binding="comboBoxBytesMultiplier">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -97,7 +97,7 @@
                       <requestFocusEnabled value="true"/>
                     </properties>
                   </component>
-                  <component id="a08a3" class="javax.swing.JSpinner" binding="spinner3" default-binding="true">
+                  <component id="a08a3" class="javax.swing.JSpinner" binding="spinnerBytes">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -105,13 +105,13 @@
                   </component>
                 </children>
               </grid>
-              <component id="631ae" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
+              <component id="631ae" class="javax.swing.JSpinner" binding="spinnerPages">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="9416d" class="javax.swing.JSpinner" binding="spinner2" default-binding="true">
+              <component id="9416d" class="javax.swing.JSpinner" binding="spinnerDepth">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>

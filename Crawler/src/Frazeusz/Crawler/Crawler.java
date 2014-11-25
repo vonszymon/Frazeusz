@@ -10,6 +10,7 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
 /**
  * Based on work of:
+ *
  * @author Yasser Ganjisaffar <lastname at gmail dot com>
  */
 
@@ -17,19 +18,30 @@ public class Crawler {
     CrawlController controller;
     Parser parser;
     int numberOfCrawlers;
-    CrawlStats stats;
-    CrawlerGUI gui;
+    CrawlerStats stats;
 
-    public Crawler(Parser parser)
-    {
+    public Crawler(CrawlerConfigurator configurator, Parser parser) {
         this.parser = parser;
-        this.gui = new CrawlerGUI(this);
-        this.stats = new CrawlStats(this);
+        this.stats = new CrawlerStats(this);
 
+        this.configure(configurator);
     }
 
-    public void setup(String crawlStorageFolder, int numberOfCrawlers) throws Exception
+    private void configure(CrawlerConfigurator configurator)
     {
+        System.out.println("Performing Crawler configuration");
+
+        System.out.println("Number of pages: " + configurator.getPages());
+        System.out.println("Maximum depth: " + configurator.getDepth());
+        System.out.println("Number of bytes: " + configurator.getBytes());
+        System.out.println("List of domains: ");
+        for (String domain : configurator.getDomains())
+        {
+            System.out.println("* " + domain);
+        }
+    }
+
+    public void setup(String crawlStorageFolder, int numberOfCrawlers) throws Exception {
 
 
 
@@ -87,7 +99,7 @@ public class Crawler {
     /*
      * Instantiate the controller for this crawl.
      */
-        //  CrawlStats stats = new CrawlStats();
+        //  CrawlerStats stats = new CrawlerStats();
         PageFetcher pageFetcher = new PageFetcher(config);
         RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
         RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
@@ -101,8 +113,7 @@ public class Crawler {
         controller.addSeed("http://www.moda.pl");
     }
 
-    public void start()
-    {
+    public void start() {
      /*
      * Start the crawl. This is a blocking operation, meaning that your code
      * will reach the line after this only when crawling is finished.
@@ -110,14 +121,8 @@ public class Crawler {
         this.controller.start(BasicCrawler.class, this.numberOfCrawlers);
     }
 
-    public CrawlStats getStatistics()
-    {
+    public CrawlerStats getStatistics() {
         return this.stats;
-    }
-
-    public CrawlerGUI getGUI()
-    {
-        return this.gui;
     }
 
     public Parser getParser() {

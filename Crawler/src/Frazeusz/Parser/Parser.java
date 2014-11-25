@@ -8,11 +8,10 @@ import java.util.List;
 
 public class Parser {
 
-    public List<WebURL> parse(Page page)
-    {
+    public List<WebURL> parse(Page page) {
         System.out.println("Parser parsing page");
 
-        List<WebURL> adresses = new ArrayList<>();
+        List<WebURL> adresses = new ArrayList<WebURL>();
 
         ///
 

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>610</y>
+      <w>260</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>Frazeusz.Crawler::CrawlerConfigurator
+--
+-pages: int
+-depth: int
+-bytes: int
+-domains: List&lt;String&gt;
+--
++CrawlerConfigurator()
++getPages()
++setPages(int pages)
++getDepth()
++setDepth(int depth)
++getBytes()
++setBytes(int bytes)
++getDomains()
++setDomains(List&lt;String&gt; domains)
++addDomain(String domain)
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>650</y>
+      <w>380</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Frazeusz.Crawler::Crawler
+--
+~controller: CrawlController
+~parser: Parser
+~numberOfCrawlers: int
+~stats: CrawlerStats
+--
++Crawler(CrawlerConfigurator configurator, Parser parser)
+-configure(CrawlerConfigurator configurator)
++setup(String crawlStorageFolder, int numberOfCrawlers)
++start()
++getStatistics()
++getParser()
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>320</y>
+      <w>260</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Frazeusz.Crawler::CrawlerGUI
+--
+-panelRoot: JPanel
+-listDomains: JList
+-spinnerPages: JSpinner
+-spinnerDepth: JSpinner
+-comboBoxBytesMultiplier: JComboBox
+-spinnerBytes: JSpinner
+--
+-getSelectedMultiplier(JComboBox box)
++getConfigurator()
++getRootPanel()
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>310</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Frazeusz.Crawler::CrawlerStats
+--
+~crawler: Crawler
+-pages: long
+-bytes: long
+--
++CrawlerStats(Crawler crawler)
++addPage()
++addBytes(long size)
++getPages()
++getBytes()
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>130</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>::Main
+--
+~crawlerGui: CrawlerGUI
+--
++init()
++start()
++main(String[] args)
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>390</y>
+      <w>170</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Frazeusz.Parser::Parser
+--
+--
++parse(Page page)
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>110</y>
+      <w>240</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Frazeusz.GUI::GUI
+--
+-tabs: JTabbedPane
+-panelRoot: JPanel
+-buttonStart: JButton
+--
++GUI(ActionListener onStart)
++showForm()
++addPane(String title, JPanel panel)
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>180</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>240</y>
+      <w>190</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>260</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>950</x>
+      <y>450</y>
+      <w>30</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1190</x>
+      <y>490</y>
+      <w>30</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>520</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>750</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>240</y>
+      <w>30</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>240</y>
+      <w>30</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
+  </element>
+</diagram>
