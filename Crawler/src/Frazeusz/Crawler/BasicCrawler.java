@@ -32,6 +32,7 @@ public class BasicCrawler extends WebCrawler {
      */
     @Override
     public void visit(Page page) {
+
         int docid = page.getWebURL().getDocid();
         String url = page.getWebURL().getURL();
         String domain = page.getWebURL().getDomain();
@@ -39,6 +40,15 @@ public class BasicCrawler extends WebCrawler {
         String subDomain = page.getWebURL().getSubDomain();
         String parentUrl = page.getWebURL().getParentUrl();
         String anchor = page.getWebURL().getAnchor();
+
+        ///////////////////////////
+        // Add and print statistics
+        //////////////////////////
+
+        stats.addPage();
+        stats.addBytes(page.getContentData().length);
+        System.out.println("Downloaded pages : "+stats.getPages());
+        System.out.println("Downloaded bytes : "+stats.getBytes());
 
         System.out.println("Docid: " + docid);
         System.out.println("URL: " + url);

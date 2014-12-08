@@ -17,6 +17,7 @@
 
 package edu.uci.ics.crawler4j.crawler;
 
+import Frazeusz.Crawler.CrawlerStats;
 import edu.uci.ics.crawler4j.fetcher.PageFetchResult;
 import edu.uci.ics.crawler4j.fetcher.CustomFetchStatus;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
@@ -100,6 +101,8 @@ public class WebCrawler implements Runnable {
 	 */
 	private boolean isWaitingForNewURLs;
 
+	protected CrawlerStats stats;
+
 	/**
 	 * Initializes the current instance of the crawler
 	 * 
@@ -108,7 +111,7 @@ public class WebCrawler implements Runnable {
 	 * @param crawlController
 	 *            the controller that manages this crawling session
 	 */
-	public void init(int id, CrawlController crawlController, Parser parser) {
+	public void init(int id, CrawlController crawlController, Parser parser, CrawlerStats stats) {
 		this.myId = id;
 		this.pageFetcher = crawlController.getPageFetcher();
 		this.robotstxtServer = crawlController.getRobotstxtServer();
@@ -117,6 +120,7 @@ public class WebCrawler implements Runnable {
 		this.parser = parser;
 		this.myController = crawlController;
 		this.isWaitingForNewURLs = false;
+		this.stats = stats;
 	}
 
 	/**
@@ -313,6 +317,11 @@ public class WebCrawler implements Runnable {
 				onContentFetchError(curURL);
 				return;
 			}
+
+			/////////////////////////////////////////
+			// Modified section - added custom Parser
+			/////////////////////////////////////////
+
 			List<String> urls = new ArrayList<>();
 			urls = parser.process(page);
 

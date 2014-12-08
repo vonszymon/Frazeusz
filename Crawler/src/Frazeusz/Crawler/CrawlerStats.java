@@ -13,19 +13,19 @@ public class CrawlerStats {
         bytes = 0;
     }
 
-    public void addPage() {
+    public synchronized void addPage() {
         pages++;
     }
 
-    public void addBytes(long size) {
+    public synchronized void addBytes(long size) {
         bytes += size;
     }
 
-    public long getPages() {
+    public synchronized long getPages() {
         return pages;
     }
 
-    public long getBytes() {
+    public synchronized long getBytes() {
         return bytes;
     }
 

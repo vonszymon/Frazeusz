@@ -13,7 +13,14 @@ public class Parser {
 
         List<String> adresses = new ArrayList<String>();
 
-        adresses.add("http://www.koty.pl");
+        adresses.add("http://www.moda.pl/odziez/bluzki/");
+        adresses.add("http://www.moda.pl/odziez/kurtki/");
+        
+        ////////////////////////////
+        // different domain problem!
+        ////////////////////////////
+
+        //adresses.add("http://www.koty.pl");
 
         return adresses;
     }

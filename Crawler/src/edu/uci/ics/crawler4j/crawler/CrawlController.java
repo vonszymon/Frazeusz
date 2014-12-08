@@ -28,6 +28,7 @@ import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.util.IO;
 import org.apache.log4j.Logger;
 import Frazeusz.Parser.Parser;
+import Frazeusz.Crawler.CrawlerStats;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -71,13 +72,15 @@ public class CrawlController extends Configurable {
 	protected Frontier frontier;
 	protected DocIDServer docIdServer;
 	protected Parser parser;
+	protected CrawlerStats stats;
 
 	protected final Object waitingLock = new Object();
 
-	public CrawlController(CrawlConfig config, PageFetcher pageFetcher, RobotstxtServer robotstxtServer,Parser parser)
+	public CrawlController(CrawlConfig config, PageFetcher pageFetcher, RobotstxtServer robotstxtServer,Parser parser, CrawlerStats stats)
 			throws Exception {
 		super(config);
 		this.parser = parser;
+		this.stats = stats;
 		config.validate();
 		File folder = new File(config.getCrawlStorageFolder());
 		if (!folder.exists()) {
@@ -151,7 +154,7 @@ public class CrawlController extends Configurable {
 				T crawler = _c.newInstance();
 				Thread thread = new Thread(crawler, "Crawler " + i);
 				crawler.setThread(thread);
-				crawler.init(i, this, parser);
+				crawler.init(i, this, parser,stats);
 				thread.start();
 				crawlers.add(crawler);
 				threads.add(thread);
@@ -180,7 +183,7 @@ public class CrawlController extends Configurable {
 											threads.remove(i);
 											threads.add(i, thread);
 											crawler.setThread(thread);
-											crawler.init(i + 1, controller, parser);
+											crawler.init(i + 1, controller, parser,stats);
 											thread.start();
 											crawlers.remove(i);
 											crawlers.add(i, crawler);
