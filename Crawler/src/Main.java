@@ -1,8 +1,8 @@
-import Frazeusz.Crawler.Crawler;
-import Frazeusz.Crawler.CrawlerConfigurator;
-import Frazeusz.Crawler.CrawlerGUI;
-import Frazeusz.GUI.GUI;
-import Frazeusz.Parser.Parser;
+import frazeusz.crawler.Crawler;
+import frazeusz.crawler.CrawlerConfigurator;
+import frazeusz.crawler.CrawlerGUI;
+import frazeusz.GUI.GUI;
+import frazeusz.Parser.Parser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +27,7 @@ public class Main {
         GUI gui = new GUI(onStart);
         crawlerGui = new CrawlerGUI();
 
-        gui.addPane("Crawler", crawlerGui.getRootPanel());
+        gui.addPane("crawler", crawlerGui.getRootPanel());
 
         gui.showForm();
 

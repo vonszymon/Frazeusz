@@ -1,4 +1,4 @@
-package Frazeusz.GUI;
+package frazeusz.GUI;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ public class GUI extends JFrame {
     private JButton buttonStart;
 
     public GUI(ActionListener onStart) {
-        super("Frazeusz");
+        super("frazeusz");
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

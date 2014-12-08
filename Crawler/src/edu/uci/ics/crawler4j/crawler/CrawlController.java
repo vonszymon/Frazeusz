@@ -61,7 +61,7 @@ public class CrawlController extends Configurable {
   protected boolean finished;
 
   /**
-   * Is the crawling session set to 'shutdown'. Crawler threads monitor this
+   * Is the crawling session set to 'shutdown'. crawler threads monitor this
    * flag and when it is set they will no longer process new pages.
    */
   protected boolean shuttingDown;
@@ -151,13 +151,13 @@ public class CrawlController extends Configurable {
 
       for (int i = 1; i <= numberOfCrawlers; i++) {
         T crawler = _c.newInstance();
-        Thread thread = new Thread(crawler, "Crawler " + i);
+        Thread thread = new Thread(crawler, "crawler " + i);
         crawler.setThread(thread);
         crawler.init(i, this);
         thread.start();
         crawlers.add(crawler);
         threads.add(thread);
-        logger.info("Crawler {} started", i);
+        logger.info("crawler {} started", i);
       }
 
       final CrawlController controller = this;
@@ -178,7 +178,7 @@ public class CrawlController extends Configurable {
                     if (!shuttingDown) {
                       logger.info("Thread {} was dead, I'll recreate it", i);
                       T crawler = _c.newInstance();
-                      thread = new Thread(crawler, "Crawler " + (i + 1));
+                      thread = new Thread(crawler, "crawler " + (i + 1));
                       threads.remove(i);
                       threads.add(i, thread);
                       crawler.setThread(thread);
@@ -440,7 +440,7 @@ public class CrawlController extends Configurable {
   }
 
   /**
-   * Set the current crawling session set to 'shutdown'. Crawler threads
+   * Set the current crawling session set to 'shutdown'. crawler threads
    * monitor the shutdown flag and when it is set to true, they will no longer
    * process new pages.
    */

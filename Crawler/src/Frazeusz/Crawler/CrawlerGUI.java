@@ -1,4 +1,4 @@
-package Frazeusz.Crawler;
+package frazeusz.crawler;
 
 import javax.swing.*;
 

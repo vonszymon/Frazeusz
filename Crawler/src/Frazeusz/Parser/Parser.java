@@ -1,4 +1,4 @@
-package Frazeusz.Parser;
+package frazeusz.Parser;
 
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.url.WebURL;

@@ -1,13 +1,13 @@
-package Frazeusz.Crawler;
+package frazeusz.crawler;
 
-public class CrawlerStats {
+public class CrawlerStatistics {
     Crawler crawler;
 
     private long pages;
 
     private long bytes;
 
-    public CrawlerStats(Crawler crawler) {
+    public CrawlerStatistics(Crawler crawler) {
         this.crawler = crawler;
         pages = 0;
         bytes = 0;
