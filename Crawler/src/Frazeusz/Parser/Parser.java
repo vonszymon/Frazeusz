@@ -8,12 +8,12 @@ import java.util.List;
 
 public class Parser {
 
-    public List<WebURL> parse(Page page) {
+    public synchronized List<String> process(Page page) {
         System.out.println("Parser parsing page");
 
-        List<WebURL> adresses = new ArrayList<WebURL>();
+        List<String> adresses = new ArrayList<String>();
 
-        ///
+        adresses.add("http://www.koty.pl");
 
         return adresses;
     }

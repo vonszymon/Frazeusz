@@ -19,9 +19,9 @@ public class CrawlerGUI {
     public CrawlerConfigurator getConfigurator() {
         CrawlerConfigurator config = new CrawlerConfigurator();
 
-        config.setPages((int) spinnerPages.getValue());
-        config.setDepth((int) spinnerDepth.getValue());
-        config.setBytes((int) spinnerBytes.getValue() * getSelectedMultiplier(comboBoxBytesMultiplier));
+        config.setPages((Integer)spinnerPages.getValue());
+        config.setDepth((Integer) spinnerDepth.getValue());
+        config.setBytes((Integer) spinnerBytes.getValue() * getSelectedMultiplier(comboBoxBytesMultiplier));
 
         ListModel listModel = listDomains.getModel();
         for (int i = 0, l = listModel.getSize(); i < l; i++) {
