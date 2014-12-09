@@ -2,7 +2,7 @@ import frazeusz.crawler.Crawler;
 import frazeusz.crawler.CrawlerConfigurator;
 import frazeusz.crawler.CrawlerGUI;
 import frazeusz.GUI.GUI;
-import frazeusz.Parser.Parser;
+import frazeusz.parser.Parser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
