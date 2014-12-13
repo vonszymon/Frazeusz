@@ -24,7 +24,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
 import org.apache.http.util.EntityUtils;
 
-import edu.uci.ics.crawler4j.parser.ParseData;
+//import edu.uci.ics.crawler4j.parser.ParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 
 /**
@@ -71,7 +71,7 @@ public class Page {
     /**
      * The parsed data populated by parsers
      */
-    protected ParseData parseData;
+    //protected ParseData parseData;
 
 	public Page(WebURL url) {
 		this.url = url;
@@ -126,13 +126,13 @@ public class Page {
     /**
      * Returns the parsed data generated for this page by parsers
      */
-	public ParseData getParseData() {
+	/*public ParseData getParseData() {
 		return parseData;
 	}
 
 	public void setParseData(ParseData parseData) {
 		this.parseData = parseData;
-	}
+	}*/
 
     /**
      * Returns the content of this page in binary format.
