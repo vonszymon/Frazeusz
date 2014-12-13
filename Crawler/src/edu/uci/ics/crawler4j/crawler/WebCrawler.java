@@ -35,6 +35,7 @@ import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.net.URL;
 
 /**
  * WebCrawler class in the Runnable class that is executed by each crawler
@@ -322,14 +323,13 @@ public class WebCrawler implements Runnable {
 			// Modified section - added custom Parser
 			/////////////////////////////////////////
 
-			List<String> urls = new ArrayList<>();
+			List<URL> urls = new ArrayList<URL>();
 			urls = parser.process(page);
-
 			List<WebURL> toSchedule = new ArrayList<>();
 			int maxCrawlDepth = myController.getConfig().getMaxDepthOfCrawling();
-			for (String url : urls) {
+			for (URL url : urls) {
 				WebURL webURL = new WebURL();
-				webURL.setURL(url);
+				webURL.setURL(url.toString());
 				webURL.setParentDocid(docid);
 				webURL.setParentUrl(curURL.getURL());
 				int newdocid = docIdServer.getDocId(webURL.getURL());
