@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class BasicCrawler extends WebCrawler {
 
-    private final static Pattern FILTERS = Pattern.compile(".*(\\.(html))$");
+    private final static Pattern FILTERS = Pattern.compile(".*(\\.(html|pdf|txt))$");
 
     /**
      * You should implement this function to specify whether the given url

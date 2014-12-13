@@ -17,7 +17,7 @@
 
 package edu.uci.ics.crawler4j.crawler;
 
-import Frazeusz.Crawler.CrawlerStats;
+import Frazeusz.Crawler.CrawlerStatistics;
 import edu.uci.ics.crawler4j.fetcher.PageFetchResult;
 import edu.uci.ics.crawler4j.fetcher.CustomFetchStatus;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
@@ -102,7 +102,7 @@ public class WebCrawler implements Runnable {
 	 */
 	private boolean isWaitingForNewURLs;
 
-	protected CrawlerStats stats;
+	protected CrawlerStatistics stats;
 
 	/**
 	 * Initializes the current instance of the crawler
@@ -112,7 +112,7 @@ public class WebCrawler implements Runnable {
 	 * @param crawlController
 	 *            the controller that manages this crawling session
 	 */
-	public void init(int id, CrawlController crawlController, Parser parser, CrawlerStats stats) {
+	public void init(int id, CrawlController crawlController, Parser parser, CrawlerStatistics stats) {
 		this.myId = id;
 		this.pageFetcher = crawlController.getPageFetcher();
 		this.robotstxtServer = crawlController.getRobotstxtServer();

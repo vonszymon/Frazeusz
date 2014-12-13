@@ -1,6 +1,7 @@
 import Frazeusz.Crawler.Crawler;
 import Frazeusz.Crawler.CrawlerConfigurator;
 import Frazeusz.Crawler.CrawlerGUI;
+import Frazeusz.Crawler.CrawlerStatistics;
 import Frazeusz.GUI.GUI;
 import Frazeusz.Parser.Parser;
 
@@ -40,7 +41,8 @@ public class Main {
         CrawlerConfigurator cfg = crawlerGui.getConfigurator();
 
         Parser parser = new Parser();
-        Crawler crawler = new Crawler(cfg, parser);
+        CrawlerStatistics crawlerStats = new CrawlerStatistics();
+        Crawler crawler = new Crawler(cfg, parser,crawlerStats);
 
         System.out.println("Setting up...");
         crawler.setup("data", 2);

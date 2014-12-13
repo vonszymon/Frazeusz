@@ -17,6 +17,7 @@
 
 package edu.uci.ics.crawler4j.crawler;
 
+import Frazeusz.Crawler.CrawlerStatistics;
 import com.sleepycat.je.Environment;
 import com.sleepycat.je.EnvironmentConfig;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
@@ -28,7 +29,6 @@ import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.util.IO;
 import org.apache.log4j.Logger;
 import Frazeusz.Parser.Parser;
-import Frazeusz.Crawler.CrawlerStats;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -72,11 +72,11 @@ public class CrawlController extends Configurable {
 	protected Frontier frontier;
 	protected DocIDServer docIdServer;
 	protected Parser parser;
-	protected CrawlerStats stats;
+	protected CrawlerStatistics stats;
 
 	protected final Object waitingLock = new Object();
 
-	public CrawlController(CrawlConfig config, PageFetcher pageFetcher, RobotstxtServer robotstxtServer,Parser parser, CrawlerStats stats)
+	public CrawlController(CrawlConfig config, PageFetcher pageFetcher, RobotstxtServer robotstxtServer,Parser parser, CrawlerStatistics stats)
 			throws Exception {
 		super(config);
 		this.parser = parser;

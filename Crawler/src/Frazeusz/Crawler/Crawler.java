@@ -18,11 +18,11 @@ public class Crawler {
     CrawlController controller;
     Parser parser;
     int numberOfCrawlers;
-    CrawlerStats stats;
+    CrawlerStatistics stats;
 
-    public Crawler(CrawlerConfigurator configurator, Parser parser) {
+    public Crawler(CrawlerConfigurator configurator, Parser parser, CrawlerStatistics crawlerStats) {
         this.parser = parser;
-        this.stats = new CrawlerStats(this);
+        this.stats = crawlerStats;
 
         this.configure(configurator);
     }
@@ -99,7 +99,7 @@ public class Crawler {
     /*
      * Instantiate the controller for this crawl.
      */
-        //  CrawlerStats stats = new CrawlerStats();
+        //  CrawlerStatistics stats = new CrawlerStatistics();
         PageFetcher pageFetcher = new PageFetcher(config);
         RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
         RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
@@ -121,7 +121,7 @@ public class Crawler {
         this.controller.start(BasicCrawler.class, this.numberOfCrawlers);
     }
 
-    public CrawlerStats getStatistics() {
+    public CrawlerStatistics getStatistics() {
         return this.stats;
     }
 
