@@ -25,7 +25,7 @@ import java.util.Map.Entry;
 
 import org.apache.http.HttpStatus;
 
-import edu.uci.ics.crawler4j.crawler.Page;
+import Frazeusz.Crawler.Page;
 import edu.uci.ics.crawler4j.fetcher.PageFetchResult;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.url.WebURL;

@@ -7,7 +7,8 @@ public class CrawlerStatistics {
 
     private long bytes;
 
-    public CrawlerStatistics() {
+    public CrawlerStatistics(Crawler crawler) {
+        this.crawler = crawler;
         pages = 0;
         bytes = 0;
     }

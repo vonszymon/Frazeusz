@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package edu.uci.ics.crawler4j.crawler;
+package Frazeusz.Crawler;
 
 import java.nio.charset.Charset;
 

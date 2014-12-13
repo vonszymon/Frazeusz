@@ -20,9 +20,9 @@ public class Crawler {
     int numberOfCrawlers;
     CrawlerStatistics stats;
 
-    public Crawler(CrawlerConfigurator configurator, Parser parser, CrawlerStatistics crawlerStats) {
+    public Crawler(CrawlerConfigurator configurator, Parser parser) {
         this.parser = parser;
-        this.stats = crawlerStats;
+        this.stats = new CrawlerStatistics(this);
 
         this.configure(configurator);
     }

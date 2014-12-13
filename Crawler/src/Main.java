@@ -41,8 +41,7 @@ public class Main {
         CrawlerConfigurator cfg = crawlerGui.getConfigurator();
 
         Parser parser = new Parser();
-        CrawlerStatistics crawlerStats = new CrawlerStatistics();
-        Crawler crawler = new Crawler(cfg, parser,crawlerStats);
+        Crawler crawler = new Crawler(cfg, parser);
 
         System.out.println("Setting up...");
         crawler.setup("data", 2);
