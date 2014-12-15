@@ -17,8 +17,8 @@
 
 package edu.uci.ics.crawler4j.crawler;
 
-import Frazeusz.Crawler.CrawlerStatistics;
-import Frazeusz.Crawler.Page;
+import frazeusz.crawler.CrawlerStatistics;
+import frazeusz.crawler.Page;
 import edu.uci.ics.crawler4j.fetcher.PageFetchResult;
 import edu.uci.ics.crawler4j.fetcher.CustomFetchStatus;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
@@ -29,7 +29,7 @@ import edu.uci.ics.crawler4j.frontier.Frontier;
 //import edu.uci.ics.crawler4j.parser.Parser;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import edu.uci.ics.crawler4j.url.WebURL;
-import Frazeusz.Parser.Parser;
+import frazeusz.parser.Parser;
 
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;

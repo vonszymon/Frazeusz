@@ -25,7 +25,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
-import Frazeusz.Crawler.Page;
+import frazeusz.crawler.Page;
 
 /**
  * @author Yasser Ganjisaffar <lastname at gmail dot com>

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package Frazeusz.Crawler;
+package frazeusz.crawler;
 
 import java.nio.charset.Charset;
 

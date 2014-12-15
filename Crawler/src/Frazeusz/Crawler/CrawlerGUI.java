@@ -1,6 +1,7 @@
-package Frazeusz.Crawler;
+package frazeusz.crawler;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CrawlerGUI {
     private JPanel panelRoot;
@@ -19,7 +20,7 @@ public class CrawlerGUI {
     public CrawlerConfigurator getConfigurator() {
         CrawlerConfigurator config = new CrawlerConfigurator();
 
-        config.setPages((Integer)spinnerPages.getValue());
+        config.setPages((Integer) spinnerPages.getValue());
         config.setDepth((Integer) spinnerDepth.getValue());
         config.setBytes((Integer) spinnerBytes.getValue() * getSelectedMultiplier(comboBoxBytesMultiplier));
 

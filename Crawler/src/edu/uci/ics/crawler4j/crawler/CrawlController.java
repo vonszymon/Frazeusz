@@ -17,7 +17,7 @@
 
 package edu.uci.ics.crawler4j.crawler;
 
-import Frazeusz.Crawler.CrawlerStatistics;
+import frazeusz.crawler.CrawlerStatistics;
 import com.sleepycat.je.Environment;
 import com.sleepycat.je.EnvironmentConfig;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
@@ -28,7 +28,7 @@ import edu.uci.ics.crawler4j.url.URLCanonicalizer;
 import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.util.IO;
 import org.apache.log4j.Logger;
-import Frazeusz.Parser.Parser;
+import frazeusz.parser.Parser;
 
 import java.io.File;
 import java.util.ArrayList;

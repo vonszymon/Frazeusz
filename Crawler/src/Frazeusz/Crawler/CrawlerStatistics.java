@@ -1,4 +1,4 @@
-package Frazeusz.Crawler;
+package frazeusz.crawler;
 
 public class CrawlerStatistics {
     Crawler crawler;

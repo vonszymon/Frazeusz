@@ -1,4 +1,4 @@
-package Frazeusz.Crawler;
+package frazeusz.crawler;
 
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 //import edu.uci.ics.crawler4j.parser.HtmlParseData;

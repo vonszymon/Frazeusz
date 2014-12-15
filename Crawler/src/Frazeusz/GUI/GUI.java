@@ -1,6 +1,7 @@
-package Frazeusz.GUI;
+package frazeusz.GUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class GUI extends JFrame {

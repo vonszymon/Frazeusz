@@ -1,6 +1,6 @@
-package Frazeusz.Parser;
+package frazeusz.parser;
 
-import Frazeusz.Crawler.Page;
+import frazeusz.crawler.Page;
 
 import java.net.MalformedURLException;
 import java.net.URL;
