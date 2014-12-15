@@ -43,10 +43,6 @@ public class Main {
         Parser parser = new Parser();
         Crawler crawler = new Crawler(cfg, parser);
 
-        System.out.println("Setting up...");
-        crawler.setup("data", 2);
-
-        System.out.println("Starting...");
         crawler.start();
 
         System.out.println("All done");
