@@ -320,6 +320,13 @@ public class WebCrawler implements Runnable {
 				return;
 			}
 
+			////////////////////
+			// Update statistics
+			////////////////////
+
+			stats.addPage();
+			stats.addBytes(page.getContentData().length);
+
 			/////////////////////////////////////////
 			// Modified section - added custom Parser
 			/////////////////////////////////////////

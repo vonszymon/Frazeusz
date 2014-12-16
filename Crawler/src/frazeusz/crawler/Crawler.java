@@ -18,9 +18,9 @@ public class Crawler {
     final int CRAWLERS = 4;
     final String CRAWLERDIR = "crawlerdata";
 
-    CrawlController controller;
-    Parser parser;
-    CrawlerStatistics stats;
+    private CrawlController controller;
+    private Parser parser;
+    private CrawlerStatistics stats;
 
     public Crawler(CrawlerConfigurator configurator, Parser parser) throws Exception {
         this.parser = parser;

@@ -43,8 +43,6 @@ public class BasicCrawler extends WebCrawler {
         // Add and print statistics
         //////////////////////////
 
-        stats.addPage();
-        stats.addBytes(page.getContentData().length);
         System.out.println("Downloaded pages : "+stats.getPages());
         System.out.println("Downloaded bytes : "+stats.getBytes());
 

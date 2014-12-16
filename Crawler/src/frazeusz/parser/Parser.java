@@ -18,7 +18,7 @@ public class Parser {
         URL url2 = new URL("http://www.moda.pl/odziez/kurtki/");
         URL url3 = new URL("http://www.koty.pl/");
         if(page.getWebURL().getURL().equals("http://www.koty.pl/")){
-            addresses.add(new URL("http://www.psy.pl/"));
+            addresses.add(new URL("http://www.psy.pl"));
         }
         addresses.add(url1);
         addresses.add(url2);
