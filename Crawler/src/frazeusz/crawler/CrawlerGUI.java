@@ -47,6 +47,8 @@ public class CrawlerGUI {
 
             }
         });
+
+        this.tableDomains.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
     }
 
     private void domainsTableModified() {
