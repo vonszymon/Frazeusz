@@ -186,7 +186,6 @@ public class PageFetcher extends Configurable {
 					fetchResult.setFetchedUrl(uri);
 				}
 			}
-
 			if (fetchResult.getEntity() != null) {
 				long size = fetchResult.getEntity().getContentLength();
 				if (size == -1) {

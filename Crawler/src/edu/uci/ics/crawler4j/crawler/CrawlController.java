@@ -73,6 +73,7 @@ public class CrawlController extends Configurable {
 	protected DocIDServer docIdServer;
 	protected Parser parser;
 	protected CrawlerStatistics stats;
+	protected final Environment env;
 
 	protected final Object waitingLock = new Object();
 
@@ -106,7 +107,7 @@ public class CrawlController extends Configurable {
 			IO.deleteFolderContents(envHome);
 		}
 
-		Environment env = new Environment(envHome, envConfig);
+		env = new Environment(envHome, envConfig);
 		docIdServer = new DocIDServer(env, config);
 		frontier = new Frontier(env, config, docIdServer);
 
@@ -169,9 +170,8 @@ public class CrawlController extends Configurable {
 				public void run() {
 					try {
 						synchronized (waitingLock) {
-
 							while (true) {
-								sleep(10);
+								sleep(2);
 								boolean someoneIsWorking = false;
 								for (int i = 0; i < threads.size(); i++) {
 									Thread thread = threads.get(i);
@@ -192,12 +192,19 @@ public class CrawlController extends Configurable {
 										someoneIsWorking = true;
 									}
 								}
+								if(config.getMaxDownloadedBytes() > 0){
+									if(stats.getBytes() > config.getMaxDownloadedBytes()){
+										System.out.println("Max download bytes limit exceeded");
+										someoneIsWorking = false;
+										shutdown();
+									}
+								}
 								if (!someoneIsWorking) {
 									// Make sure again that none of the threads
 									// are
 									// alive.
-									logger.info("It looks like no thread is working, waiting for 10 seconds to make sure...");
-									sleep(10);
+									logger.info("It looks like no thread is working, waiting for 2 seconds to make sure...");
+									sleep(2);
 
 									someoneIsWorking = false;
 									for (int i = 0; i < threads.size(); i++) {
@@ -212,8 +219,8 @@ public class CrawlController extends Configurable {
 											if (queueLength > 0) {
 												continue;
 											}
-											logger.info("No thread is working and no more URLs are in queue waiting for another 10 seconds to make sure...");
-											sleep(10);
+											logger.info("No thread is working and no more URLs are in queue waiting for another 2 seconds to make sure...");
+											sleep(2);
 											queueLength = frontier.getQueueLength();
 											if (queueLength > 0) {
 												continue;
@@ -231,8 +238,8 @@ public class CrawlController extends Configurable {
 											crawlersLocalData.add(crawler.getMyLocalData());
 										}
 
-										logger.info("Waiting for 10 seconds before final clean up...");
-										sleep(10);
+										logger.info("Waiting for 2 seconds before final clean up...");
+										sleep(2);
 
 										frontier.close();
 										docIdServer.close();
@@ -240,7 +247,7 @@ public class CrawlController extends Configurable {
 
 										finished = true;
 										waitingLock.notifyAll();
-
+										env.close();
 										return;
 									}
 								}

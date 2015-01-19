@@ -96,6 +96,10 @@ public class CrawlConfig {
 	 */
 	private int maxDownloadSize = 1048576;
 
+	/* 0 unlimited */
+
+	private long maxDownloadedBytes = 0;
+
 	/**
 	 * Should we follow redirects?
 	 */
@@ -366,6 +370,12 @@ public class CrawlConfig {
 	public String getProxyPassword() {
 		return proxyPassword;
 	}
+
+	public void setMaxDownloadedBytes(long maxBytes) {
+		this.maxDownloadedBytes = maxBytes;
+	}
+
+	public long getMaxDownloadedBytes() { return this.maxDownloadedBytes;}
 
 	/**
 	 * If crawler should run behind a proxy and user/pass is needed for

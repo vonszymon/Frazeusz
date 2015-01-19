@@ -36,7 +36,11 @@ public class Crawler {
 
         config.setMaxPagesToFetch(configurator.getPages());
 
+        config.setMaxDownloadedBytes(configurator.getBytes());
+
         config.setResumableCrawling(false);
+
+        config.setIncludeHttpsPages(true);
 
         PageFetcher pageFetcher = new PageFetcher(config);
         RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
@@ -60,4 +64,6 @@ public class Crawler {
     public Parser getParser() {
         return this.parser;
     }
+
+    public void stopCrawling(){ this.controller.shutdown(); }
 }
