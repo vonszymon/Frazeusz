@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 public class Main {
     CrawlerGUI crawlerGui;
+    Crawler crawler;
 
     public void init() {
         System.out.println("Initializing");
@@ -25,7 +26,40 @@ public class Main {
             }
         };
 
-        GUI gui = new GUI(onStart);
+        ActionListener onStop = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    crawler.stopCrawling();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
+        };
+
+        ActionListener onSuspend = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    crawler.suspendCrawling();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
+        };
+
+        ActionListener onResume = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    crawler.resumeCrawling();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
+        };
+
+        GUI gui = new GUI(onStart,onStop,onSuspend,onResume);
         crawlerGui = new CrawlerGUI();
 
         gui.addPane("Crawler", crawlerGui.getRootPanel());
@@ -41,10 +75,14 @@ public class Main {
         CrawlerConfigurator cfg = crawlerGui.getConfigurator();
 
         Parser parser = new Parser();
-        Crawler crawler = new Crawler(cfg, parser);
-
-        crawler.start();
-
+        crawler = new Crawler(cfg, parser);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                crawler.start();
+            }
+        });
+        t.start();
         System.out.println("All done");
     }
 

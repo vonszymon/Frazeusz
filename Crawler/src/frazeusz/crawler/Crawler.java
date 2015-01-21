@@ -66,4 +66,8 @@ public class Crawler {
     }
 
     public void stopCrawling(){ this.controller.shutdown(); }
+
+    public void suspendCrawling() { this.controller.suspend(); }
+
+    public void resumeCrawling() { this.controller.resume(); }
 }

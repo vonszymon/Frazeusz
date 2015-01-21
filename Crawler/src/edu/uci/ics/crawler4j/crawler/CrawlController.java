@@ -74,6 +74,8 @@ public class CrawlController extends Configurable {
 	protected Parser parser;
 	protected CrawlerStatistics stats;
 	protected final Environment env;
+	protected Thread monitorThread;
+	private List<Thread> threads;
 
 	protected final Object waitingLock = new Object();
 
@@ -148,7 +150,7 @@ public class CrawlController extends Configurable {
 		try {
 			finished = false;
 			crawlersLocalData.clear();
-			final List<Thread> threads = new ArrayList<>();
+			threads = new ArrayList<>();
 			final List<T> crawlers = new ArrayList<>();
 
 			for (int i = 1; i <= numberOfCrawlers; i++) {
@@ -164,7 +166,7 @@ public class CrawlController extends Configurable {
 
 			final CrawlController controller = this;
 
-			Thread monitorThread = new Thread(new Runnable() {
+			monitorThread = new Thread(new Runnable() {
 
 				@Override
 				public void run() {
@@ -453,5 +455,20 @@ public class CrawlController extends Configurable {
 		logger.info("Shutting down...");
 		this.shuttingDown = true;
 		frontier.finish();
+	}
+
+	public void suspend() {
+		monitorThread.suspend();
+		for(Thread thread : threads){
+            thread.suspend();
+        }
+		System.out.println("Crawler threads suspended");
+	}
+	public void resume() {
+		for(Thread thread : threads){
+			thread.resume();
+		}
+		monitorThread.resume();
+		System.out.println("Crawler threads resuming work");
 	}
 }
