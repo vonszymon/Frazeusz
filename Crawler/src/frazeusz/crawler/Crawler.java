@@ -49,6 +49,10 @@ public class Crawler {
 
         for (String domain : configurator.getDomains())
         {
+            String prefix = domain.substring(0,4);
+            if(!prefix.equals("http")){
+                domain = "http://" + domain;
+            }
             controller.addSeed(domain);
         }
     }
